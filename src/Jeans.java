@@ -6,9 +6,9 @@ public class Jeans {
     private String dateOfPurchase;
     private String color;
 
-    public final String red = "\033[31m";
-    public final String magenta = "\033[35m";
-    public final String cyan =  "\033[36m";
+    public final String RED = "\033[31m";
+    public final String MAGENTA = "\033[35m";
+    public final String CYAN =  "\033[36m";
 
     private int totalJeans;
 
@@ -16,20 +16,36 @@ public class Jeans {
         this.brand = b;
         this.numPocket = n;
         this.dateOfPurchase = d;
+
+        color = RED;
+        totalJeans++;
     }
 
-    public void ageOfJeans() {
+    public void setColor(String color) {
+        if(color.equals("R")) {
+            this.color = RED;
+        } else if(color.equals("M")) {
+            this.color = MAGENTA;
+        } else if(color.equals("C")) {
+            this.color = CYAN;
+        } else {
+            System.out.println("Enter a valid color");
+        }
+    }
+
+    public int ageOfJeans() {
         LocalDate localDate = LocalDate.now();
 
         LocalDate currentDate = localDate;
+        LocalDate purchaseDate = LocalDate.parse(dateOfPurchase);
 
-        int year = currentDate.getYear();
-        int month = currentDate.getMonthValue();
-        int day = currentDate.getDayOfMonth();
+        int currentYear = currentDate.getYear();
 
-        LocalDate newCurrentDate = LocalDate.parse(year + "-" + month + "-" + day);
+        int purchaseYear = purchaseDate.getYear();
 
-        System.out.println(currentDate);
+        int ageYear = currentYear - purchaseYear;
+
+        return ageYear;
     }
 
     public String getBrand() {
@@ -50,10 +66,6 @@ public class Jeans {
 
     public void setNumPocket(int numPocket) {
         this.numPocket = numPocket;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
     }
 
     public int getTotalJeans() {
