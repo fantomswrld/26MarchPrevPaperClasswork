@@ -36,7 +36,7 @@ public class Jeans {
 
     public void flowers(int i) {
         for(int j = 0; j < i; j++) {
-            System.out.println(this.color + ": ✿ ❀ ❁ ✾ ✽ ❃");
+            System.out.println(this.color + "✿ ❀ ❁ ✾ ✽ ❃");
         }
     }
 
