@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.Period;
 
 public class Jeans {
     private String brand;
@@ -21,12 +22,12 @@ public class Jeans {
         totalJeans++;
     }
 
-    public void setColor(String color) {
-        if(color.equals("R")) {
+    public void setColor(char c) {
+        if(c == 'R') {
             this.color = RED;
-        } else if(color.equals("M")) {
+        } else if(c == 'M') {
             this.color = MAGENTA;
-        } else if(color.equals("C")) {
+        } else if(c == 'C') {
             this.color = CYAN;
         } else {
             System.out.println("Enter a valid color");
@@ -45,12 +46,9 @@ public class Jeans {
         LocalDate currentDate = localDate;
         LocalDate purchaseDate = LocalDate.parse(dateOfPurchase);
 
-        int currentYear = currentDate.getYear();
-        int purchaseYear = purchaseDate.getYear();
+        Period period = Period.between(currentDate, purchaseDate);
 
-        int ageYear = currentYear - purchaseYear;
-
-        return ageYear;
+        return period.getYears();
     }
 
     public String getBrand() {
