@@ -17,7 +17,7 @@ public class Jeans {
         this.numPocket = n;
         this.dateOfPurchase = d;
 
-        color = RED;
+        this.color = RED;
         totalJeans++;
     }
 
@@ -33,6 +33,12 @@ public class Jeans {
         }
     }
 
+    public void flowers(int i) {
+        for(int j = 0; j < i; j++) {
+            System.out.println(this.color + ": ✿ ❀ ❁ ✾ ✽ ❃");
+        }
+    }
+
     public int ageOfJeans() {
         LocalDate localDate = LocalDate.now();
 
@@ -40,7 +46,6 @@ public class Jeans {
         LocalDate purchaseDate = LocalDate.parse(dateOfPurchase);
 
         int currentYear = currentDate.getYear();
-
         int purchaseYear = purchaseDate.getYear();
 
         int ageYear = currentYear - purchaseYear;
